@@ -1,8 +1,8 @@
-env:
-  DOCKER_COMPOSE_VERSION: 1.17.0
-
 services:
   - docker
+
+env:
+  - DOCKER_COMPOSE_VERSION=1.17.0
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
@@ -10,8 +10,5 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 
-  - docker-compose pull
+script:
   - docker-compose build
-  - docker-compose start
-
-  - docker ps

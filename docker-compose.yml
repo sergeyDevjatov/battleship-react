@@ -2,26 +2,10 @@ version: '3'
 services:
   frontend:
     container_name: "${COMPOSE_PROJECT_NAME}-frontend"
-    image: "node:alpine"
-    working_dir: "/app"
-    environment:
-      - "PORT=3000"
-    ports:
-      - "3000:3000"
-    command: ["/bin/sh", "-c", "npm install && npm start"]
-    volumes:
-      - "./frontend:/app"
-      - "/app/node_modules"
+    image: sergeydevjatov/battleship:frontend
+    build: "./frontend"
 
   backend:
     container_name: "${COMPOSE_PROJECT_NAME}-backend"
-    image: "node:alpine"
-    working_dir: "/app"
-    environment:
-      - "PORT=5000"
-    ports:
-      - "5000:5000"
-    command: ["/bin/sh", "-c", "npm install && node server"]
-    volumes:
-      - "./backend:/app"
-      - "/app/node_modules"
+    image: sergeydevjatov/battleship:backend
+    build: "./backend"
