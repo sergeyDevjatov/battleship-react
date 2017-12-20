@@ -21,12 +21,18 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/hello')
+    fetch('/api/game-create', {method: 'POST'})
         .then(response => response.json())
-        .then(data => this.setState({
-            helloMessage: data.msg
+        .then(data => {
+          let gameId = data.gameId;
+          fetch('/api/game-connect', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ gameId })
           })
-        )
+              .then(response => response.text())
+              .then(text => console.log(text));
+        });
   }
 
 }

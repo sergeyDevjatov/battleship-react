@@ -1,4 +1,3 @@
-const app = require('./app.js');
-
+const app = require('./restApi.js');
 
 app.listen(process.env.PORT | 5000);
