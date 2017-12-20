@@ -1,17 +1,16 @@
-var express = require('express');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+let express = require('express');
+let cookieParser = require('cookie-parser');
+let session = require('express-session');
+let bodyParser = require('body-parser');
 
-var app = express();
+let app = express();
+
+app.use(session({
+  secret: 'mysecret'
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-
-app.get('/api/hello', function(req, res){
-  res.json({
-    msg: 'Hello, world!'
-  });
-});
 
 module.exports = app;
