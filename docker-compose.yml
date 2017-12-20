@@ -4,6 +4,10 @@ services:
     container_name: "${COMPOSE_PROJECT_NAME}-frontend"
     image: sergeydevjatov/battleship:frontend
     build: "./frontend"
+    ports:
+      - 3000:3000
+    volumes:
+      - "./frontend/src/:/app/src/"
 
   backend:
     container_name: "${COMPOSE_PROJECT_NAME}-backend"
