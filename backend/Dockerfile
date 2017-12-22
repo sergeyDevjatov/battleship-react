@@ -8,6 +8,8 @@ COPY package.json .
 RUN npm i
 COPY . .
 
-CMD node server
+RUN npm test
+
+CMD npm start
 
 EXPOSE ${PORT}
