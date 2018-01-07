@@ -1,4 +1,7 @@
-const app = require('./restApi.js');
+const app = require('./app.js');
+const restApi = require('./restApi.js');
+
+restApi(app);
 
 app.listen(process.env.PORT | 5000);
 
