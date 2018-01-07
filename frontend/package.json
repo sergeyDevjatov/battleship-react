@@ -7,9 +7,12 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "^1.0.17"
+    "axios": "~0.17.1",
+    "react": "~16.2.0",
+    "react-dom": "~16.2.0",
+    "react-scripts": "~1.0.17",
+    "socket.io": "~2.0.4",
+    "universal-cookie": "~2.1.2"
   },
   "proxy": "http://battleship-backend:5000"
 }
